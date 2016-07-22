@@ -1,2 +1,5 @@
-# social_media_apis_demo_public
-Social Media APIs with Rails for a toptal article
+# Social Media Apis Demo
+
+Please make sure to fill in your own ids and secrets in config/initializers/app_settings.rb
+Also make sure to setup your apps correctly on the respective social media platforms.
+
