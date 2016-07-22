@@ -1,0 +1,29 @@
+.row
+  .col-xs-12 
+    %h1
+      Toptal Social Media APIs Demo
+    - flash.each do |key, value|
+      = content_tag :div, value, class: "flash #{key}"
+- if current_user.present?
+  .row
+    .col-xs-12
+      = "logged in with #{current_user.authentication.provider}"
+      = link_to t(".logout"), destroy_user_session_path, method: :delete , class: "btn btn-destroy"
+  .row
+    .col-xs-12
+      = "answer: #{@answer}"   
+- else 
+  %br
+  .row
+    .col-xs-4
+      = link_to t(".login_with_facebook"), omniauth_authorize_path('user', :facebook), class: "btn btn-primary"
+    .col-xs-4
+      = link_to t(".login_with_instagram"), omniauth_authorize_path('user', :instagram), class: "btn btn-primary"
+    .col-xs-4
+      = link_to t(".login_with_google"), omniauth_authorize_path('user', :google_oauth2), class: "btn btn-primary"
+  %br
+  .row
+    .col-xs-4
+      = link_to t(".login_with_twitter"), omniauth_authorize_path('user', :twitter), class: "btn btn-primary"
+    .col-xs-4
+      = link_to t(".login_with_pinterest"), omniauth_authorize_path('user', :pinterest), class: "btn btn-primary"
